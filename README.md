@@ -1,1 +1,1 @@
-Nextjs Communications starter
+Nextjs site for konnects.ca
