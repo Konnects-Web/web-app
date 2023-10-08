@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { validationSchema } from "@/utils/validations";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { toFormikValidationSchema } from "zod-formik-adapter";
+import NewsLatterBox from "./NewsLatterBox";
+
 import { ToastContainer, toast } from "react-toastify";
 import Confetti from "react-confetti";
 
@@ -10,6 +12,7 @@ type FormValues = {
   name: string;
   email: string;
   message: string;
+  
 };
 
 const ContactForm = () => {
@@ -54,6 +57,23 @@ const ContactForm = () => {
   };
 
   return (
+
+    <section id="contact" className="overflow-hidden py-16 md:py-20 lg:py-28">
+    <div className="container">
+      <div className="-mx-4 flex flex-wrap">
+        <div className="w-full px-4 lg:w-7/12 xl:w-8/12">
+          <div
+            className="wow fadeInUp mb-12 rounded-md bg-primary/[3%] py-11 px-8 dark:bg-dark sm:p-[55px] lg:mb-5 lg:px-8 xl:p-[55px]"
+            data-wow-delay=".15s
+            "
+          >
+            <h2 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl lg:text-2xl xl:text-3xl">
+              Connect with us
+            </h2>
+            <p className="mb-12 text-base font-medium text-body-color">
+              Our support team will get back to you ASAP via email.
+            </p>
+    
     <>
       <Formik
         initialValues={{ name: "", email: "", message: "" }}
@@ -61,18 +81,17 @@ const ContactForm = () => {
         onSubmit={handleSubmit}
       >
         <Form>
-          <div className="lg:w-1/2 md:w-2/3 mx-auto">
-            <div className="flex flex-wrap -m-2">
-              <div className="p-2 w-1/2">
-                <div className="relative">
-                  <label className="leading-7 text-sm text-gray-600">
+        <div className="-mx-4 flex flex-wrap">
+                  <div className="w-full px-4 md:w-1/2">
+                    <div className="mb-8">
+                  <label className="mb-3 block text-sm font-medium text-dark dark:text-white">
                     Name
                   </label>
                   <Field
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
                   />
                   <ErrorMessage
                     name="name"
@@ -80,17 +99,19 @@ const ContactForm = () => {
                     className="text-red-500"
                   />
                 </div>
-              </div>
-              <div className="p-2 w-1/2">
-                <div className="relative">
-                  <label className="leading-7 text-sm text-gray-600">
+                </div>
+                
+              
+              <div className="w-full px-4 md:w-1/2">
+                <div className="mb-8">
+                  <label className="mb-3 block text-sm font-medium text-dark dark:text-white">
                     Email
                   </label>
                   <Field
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
                   />
                   <ErrorMessage
                     name="email"
@@ -99,16 +120,17 @@ const ContactForm = () => {
                   />
                 </div>
               </div>
-              <div className="p-2 w-full">
-                <div className="relative">
-                  <label className="leading-7 text-sm text-gray-600">
+              <div className="w-full px-4">
+                <div className="mb-8">
+                  <label className="mb-3 block text-sm font-medium text-dark dark:text-white">
                     Message
                   </label>
                   <Field
                     id="message"
                     name="message"
                     as="textarea"
-                    className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                    rows={5}
+                    className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
                   />
                   <ErrorMessage
                     name="message"
@@ -117,18 +139,20 @@ const ContactForm = () => {
                   />
                 </div>
               </div>
-              <div className="p-2 w-full">
+              <div className="w-full px-4">
                 <button
                   disabled={isLoading}
-                  className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-                >
-                  Button
+                  className="rounded-md bg-primary py-4 px-9 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp">
+                  send
                 </button>
+                
               </div>
             </div>
-          </div>
+          
         </Form>
       </Formik>
+
+
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -150,7 +174,19 @@ const ContactForm = () => {
         />
       )}
     </>
+
+</div>
+</div>
+<div className="w-full px-4 lg:w-5/12 xl:w-4/12">
+  <NewsLatterBox />
+</div>
+</div>
+</div>
+</section>
+
+
   );
+      
 };
 
 export default ContactForm;

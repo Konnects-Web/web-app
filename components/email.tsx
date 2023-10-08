@@ -6,7 +6,6 @@ import {
   Head,
   Heading,
   Html,
- 
   Text,
 } from "@react-email/components";
 
@@ -28,10 +27,10 @@ export const Email: React.FC<Readonly<EmailProps>> = ({
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-[40px] w-[465px] rounded border border-solid border-[#eaeaea] p-[20px]">
             <Heading className="mx-0 my-[30px] p-0 text-center text-[24px] font-normal text-black">
-              You got a message!
+              A message!
             </Heading>
             <Text className="text-[14px] leading-[24px] text-black">
-              for Konnects admin,
+              site contact,
             </Text>
             <Text className="text-[14px] leading-[24px] text-black">
               You got an email from <strong>{name}</strong>. Their email is{" "}
